@@ -1,6 +1,7 @@
-package com.sem.level4task1
+package com.sem.level4task1.dao
 
 import androidx.room.*
+import com.sem.level4task1.model.Product
 
 @Dao
 interface ProductDao {

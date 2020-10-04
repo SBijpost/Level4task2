@@ -1,4 +1,4 @@
-package com.sem.level4task1
+package com.sem.level4task1.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import com.sem.level4task1.R
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.

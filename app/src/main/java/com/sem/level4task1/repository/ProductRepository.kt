@@ -1,6 +1,9 @@
-package com.sem.level4task1
+package com.sem.level4task1.repository
 
 import android.content.Context
+import com.sem.level4task1.dao.ProductDao
+import com.sem.level4task1.database.ShoppingListRoomDatabase
+import com.sem.level4task1.model.Product
 
 class ProductRepository(context: Context) {
 
