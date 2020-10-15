@@ -5,10 +5,8 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Build
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -37,18 +35,18 @@ class GameListFragment : Fragment() {
     private val games = arrayListOf<Game>()
     private val gameListAdapter = GameListAdapter(games)
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_history_list, container, false)
+        val v = inflater.inflate(R.layout.fragment_history_list, container, false)
+        setHasOptionsMenu(true)
+        return v
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         gameRepository = GameRepository(requireContext())
 
         getGameListFromDatabase()
@@ -68,53 +66,24 @@ class GameListFragment : Fragment() {
         createItemTouchHelper().attachToRecyclerView(rvList)
     }
 
-//    @RequiresApi(Build.VERSION_CODES.O)
-//    @SuppressLint("InflateParams")
-//    private fun showAddGamedialog() {
-//        val builder = AlertDialog.Builder(requireContext())
-//        builder.setTitle(getString(R.string.add_product_dialog_title))
-//        val dialogLayout = layoutInflater.inflate(R.layout.add_product_dialog, null)
-//        val productName = dialogLayout.findViewById<EditText>(R.id.txt_product_name)
-//        val amount = dialogLayout.findViewById<EditText>(R.id.txt_amount)
-//
-//        builder.setView(dialogLayout)
-//        builder.setPositiveButton(R.string.dialog_ok_btn) { _: DialogInterface, _: Int ->
-//            addGame()
-//        }
-//        builder.show()
-//    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        menu.clear()
+        inflater.inflate(R.menu.menu_history, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        val id = item.itemId
 
-//    @RequiresApi(Build.VERSION_CODES.O)
-//    private fun addGame() {
-//            mainScope.launch {
-//                val game = Game(
-//                    gameDate = LocalDateTime.now().toString(),
-//                    winLose = "win",
-//                    pcPick = 1,
-//                    playerPick = 2
-//                )
-//
-//                withContext(Dispatchers.IO) {
-//                    gameRepository.insertGame(game)
-//                }
-//
-//                getGameListFromDatabase()
-//            }
-//    }
+        if(id == R.id.action_delete){
+            removeAllGames()
+        }
 
-//    private fun validateFields(txtProductName: EditText
-//                               , txtAmount: EditText
-//    ): Boolean {
-//        return if (txtProductName.text.toString().isNotBlank()
-//            && txtAmount.text.toString().isNotBlank()
-//        ) {
-//            true
-//        } else {
-//            Toast.makeText(activity, "Please fill in the fields", Toast.LENGTH_LONG).show()
-//            false
-//        }
-//    }
+        return super.onOptionsItemSelected(item)
+    }
 
 
     /**
@@ -171,8 +140,8 @@ class GameListFragment : Fragment() {
             withContext(Dispatchers.IO) {
                 gameRepository.deleteAllGames()
             }
-            getGameListFromDatabase()
         }
+        getGameListFromDatabase()
     }
 
 

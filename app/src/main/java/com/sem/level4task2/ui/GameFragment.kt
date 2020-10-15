@@ -17,6 +17,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -40,6 +42,9 @@ class GameFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        gameRepository = GameRepository(requireContext())
+
         initViews()
     }
 
@@ -55,8 +60,12 @@ class GameFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun addGame(win: String, pc: Int, player: Int) {
         mainScope.launch {
+            val current = LocalDateTime.now()
+            val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL, FormatStyle.MEDIUM)
+            val formatted = current.format(formatter)
+
             val game = Game(
-                gameDate = LocalDateTime.now().toString(),
+                gameDate = formatted,
                 winLose = win,
                 pcPick = pc,
                 playerPick = player

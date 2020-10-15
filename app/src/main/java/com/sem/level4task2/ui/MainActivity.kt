@@ -5,17 +5,14 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.widget.Toolbar
+import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupWithNavController
 import com.sem.level4task2.R
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
-    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,22 +20,22 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
 
         navController = findNavController(R.id.nav_host_fragment)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        findViewById<Toolbar>(R.id.toolbar)
-            .setupWithNavController(navController, appBarConfiguration)
+
+        supportFragmentManager.addOnBackStackChangedListener {
+            if (supportFragmentManager.backStackEntryCount > 0) {
+                Log.v("test", "HALLO HET WERKT!")
+                supportActionBar?.setDisplayHomeAsUpEnabled(true)
+                supportActionBar?.setDisplayShowHomeEnabled(true)
+            } else {
+                supportActionBar?.setDisplayHomeAsUpEnabled(false)
+                supportActionBar?.setDisplayShowHomeEnabled(false)
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            if(destination.id == R.id.secondFragment) {
-                menu.clear()
-                menuInflater.inflate(R.menu.menu_main, menu)
-            } else {
-                menu.clear()
-                menuInflater.inflate(R.menu.menu_history, menu)
-            }
-        }
+        menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
@@ -48,13 +45,16 @@ class MainActivity : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         val id = item.itemId
 
-        if(id == R.id.action_history){
+        if(id == R.id.action_history) {
             navController.navigate(R.id.action_secondFragment_to_shoppingListFragment)
         }
-        if(id == R.id.action_delete){
-            navController.navigate(R.id.action_shoppingListFragment_to_secondFragment)
+
+        if (id == android.R.id.home) {
+            super.onBackPressed();
+            Toast.makeText(this, "OnBackPressed Works", Toast.LENGTH_SHORT).show();
         }
 
         return super.onOptionsItemSelected(item)
     }
+
 }
