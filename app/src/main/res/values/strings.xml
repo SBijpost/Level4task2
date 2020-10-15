@@ -18,6 +18,12 @@
     <string name="your_all_time_statistics">Your all time statistics</string>
     <string name="win_0_draw_0_lose_0">Win: 0 Draw: 0 Lose: 0</string>
     <string name="you_win">You win!</string>
+    <string name="you_lose">You lose!</string>
+    <string name="draw">Draw!</string>
     <string name="v_s">V.S.</string>
     <string name="todo">TODO</string>
+    <string name="history">History</string>
+    <string name="delete">Delete</string>
+    <string name="computer">Computer</string>
+    <string name="you">You</string>
 </resources>
