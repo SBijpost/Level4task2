@@ -1,4 +1,4 @@
-package com.sem.level4task1.model
+package com.sem.Level4task2.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

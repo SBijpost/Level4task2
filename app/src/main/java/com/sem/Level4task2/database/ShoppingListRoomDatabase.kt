@@ -1,11 +1,11 @@
-package com.sem.level4task1.database
+package com.sem.Level4task2.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.sem.level4task1.model.Product
-import com.sem.level4task1.dao.ProductDao
+import com.sem.Level4task2.dao.ProductDao
+import com.sem.Level4task2.model.Product
 
 @Database(entities = [Product::class], version = 1, exportSchema = false)
 abstract class ShoppingListRoomDatabase : RoomDatabase() {

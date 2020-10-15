@@ -1,10 +1,10 @@
-package com.sem.level4task1.ui
+package com.sem.Level4task2.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import com.sem.level4task1.R
+import com.sem.Level4task2.R
 
 class MainActivity : AppCompatActivity() {
 

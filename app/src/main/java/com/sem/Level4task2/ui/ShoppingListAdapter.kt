@@ -1,11 +1,11 @@
-package com.sem.level4task1.ui
+package com.sem.Level4task2.ui
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.sem.level4task1.R
-import com.sem.level4task1.model.Product
+import com.sem.Level4task2.R
+import com.sem.Level4task2.model.Product
 import kotlinx.android.synthetic.main.product.view.*
 
 

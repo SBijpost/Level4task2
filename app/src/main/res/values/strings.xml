@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Level4task1</string>
+    <string name="app_name">Level4task2</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -13,4 +13,11 @@
     <string name="add_product">add product</string>
     <string name="add_product_dialog_title">Add a product to your list!</string>
     <string name="dialog_ok_btn">OK</string>
+    <string name="welcome">Welcome</string>
+    <string name="instructions_select_rock_paper_or_scissors_to_play">Instructions: select rock, paper or scissors to play.</string>
+    <string name="your_all_time_statistics">Your all time statistics</string>
+    <string name="win_0_draw_0_lose_0">Win: 0 Draw: 0 Lose: 0</string>
+    <string name="you_win">You win!</string>
+    <string name="v_s">V.S.</string>
+    <string name="todo">TODO</string>
 </resources>

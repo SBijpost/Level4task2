@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sem.level4task1">
+    package="com.sem.Level4task2">
 
     <application
         android:allowBackup="true"

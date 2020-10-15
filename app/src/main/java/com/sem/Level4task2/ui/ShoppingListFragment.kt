@@ -1,4 +1,4 @@
-package com.sem.level4task1.ui
+package com.sem.Level4task2.ui
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.sem.level4task1.R
-import com.sem.level4task1.model.Product
-import com.sem.level4task1.repository.ProductRepository
+import com.sem.Level4task2.R
+import com.sem.Level4task2.model.Product
+import com.sem.Level4task2.repository.ProductRepository
 import kotlinx.android.synthetic.main.fragment_shopping_list.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

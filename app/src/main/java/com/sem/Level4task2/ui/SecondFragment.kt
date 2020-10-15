@@ -1,4 +1,4 @@
-package com.sem.level4task1.ui
+package com.sem.Level4task2.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
-import com.sem.level4task1.R
+import com.sem.Level4task2.R
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -25,8 +25,5 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<Button>(R.id.button_second).setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-        }
     }
 }
